@@ -44,3 +44,23 @@ const myFunction=function(){ // function (can be stored in a variable)
 console.log(typeof(heros)); // "object" -> arrays are a type of object in JS
 console.log(typeof(myObj)); // "object" -> objects return "object"
 console.log(typeof(myFunction)); // "function" -> functions have their own typeof result
+
+// memory
+// stack (primitive)
+// heap (non-primitive)
+
+let myYouTubeName = "raghav-vlogs"; // primitive type (string) -> stored in stack (copied by value)
+let anotherName = myYouTubeName; // copy of value "raghav-vlogs" is assigned to anotherName
+anotherName = "raghav-travels"; // changing anotherName doesn't affect myYouTubeName
+console.log(myYouTubeName); // "raghav-vlogs" -> original value remains unchanged
+console.log(anotherName); // "raghav-travels" -> updated value of anotherName
+
+let userOne = { // non-primitive (object) -> stored in heap, reference is kept in stack
+    email: "user@gmail.com",
+    upi: "user@ptsbi",
+};
+let userTwo = userOne; // userTwo gets the REFERENCE to the same object in heap
+userTwo.email = "hello@gmail.com"; // updating userTwo also updates userOne (both point to same object)
+
+console.log(userOne); // { email: "hello@gmail.com", upi: "user@ptsbi" }
+console.log(userTwo); // { email: "hello@gmail.com", upi: "user@ptsbi" }
